@@ -9,20 +9,10 @@
 		document.addEventListener("deviceready",phoneReady,false);
 	}
 	function phoneReady(){
-	
-	
+	document.getElementById("status").innerHTML = "Page ready";
 	}
 	
 	function initCamera(){
-	
-	var option = {
-	
-	quality : 80,
-	destinationType : FILE_URL,
-	allowEdit:true;
-	encodingTypr:JPEG,
-	PictureSourceType:CAMERA; //PHOTOLIBARARY,CAMERA,SAVEDPHOTOALBUM
-	}
 	
 	navigator.camera.getPicture(onSuccess,onFail,{quality:80,destinationType: Camera.DestinationType.DATA_URL});
 	}
@@ -42,8 +32,6 @@
 	
 	div{
 	width:300px;
-	
-	
 	}
 	
 	
@@ -52,7 +40,7 @@
 	float:left;
 	background:gray;
 	width : 150px;
-	height : 180px;
+	height : 200px;
 	left : 0px;
 	}
 	
@@ -71,10 +59,10 @@
 	</style>
 </head>
 <body onload = "pageLoaded()">
-	
+<h1 id="status"></h1>
 <div>
 <div id = "a">
-	<img src = "" id = "pic" height = "180" width = "150"/><br>
+	<img src = "images/profile.jpg" id = "pic" height = "200" width = "150"/><br>
 </div>
 <div id = "b"><br><br>
 	<p><br>
@@ -85,7 +73,7 @@
   <input type = "button" value = "Take Picture" onClick = "initCamera()"/>
 </p>
 <p>
-  <input type = "button" value = "Choose from Device" onClick = "initCamera()"/>
+  <input type = "button" value = "Choose Picture" onClick = "initCamera()"/>
 </p>
 </div>
 <p><br>
@@ -94,7 +82,9 @@
 
 <div id = "c">
 	Name  : <input type = "text" id = "name" name = "name"/><br><br>
-	Email : <input type = "text" id = "email" name = "email"/>
+	Email : <input type = "text" id = "email" name = "email"/><br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" id = "button" name = "button" value = "Register"/>
+			
 </div>
 
 </body>
