@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+
+	<script src = "cordova.js"></script>
+	
+	<script>
+	function pageLoaded(){
+	
+		document.addEventListener("deviceready",phoneReady,false);
+	}
+	function phoneReady(){
+	
+	
+	}
+	
+	function initCamera(){
+	
+	var option = {
+	
+	quality : 80,
+	destinationType : FILE_URL,
+	allowEdit:true;
+	encodingTypr:JPEG,
+	PictureSourceType:CAMERA; //PHOTOLIBARARY,CAMERA,SAVEDPHOTOALBUM
+	}
+	
+	navigator.camera.getPicture(onSuccess,onFail,{quality:80,destinationType: Camera.DestinationType.DATA_URL});
+	}
+	
+	function onSuccess(imageURL){
+	
+	document.getElementById("pic").src = "data:image/jpeg/base64," + imageURL;
+	}
+	
+	function onFail(message){
+	
+	//message = reason for failure;
+	}
+	</script>
+	
+	<style>
+	
+	div{
+	width:300px;
+	
+	
+	}
+	
+	
+	div#a{
+	
+	float:left;
+	background:gray;
+	width : 150px;
+	height : 180px;
+	left : 0px;
+	}
+	
+	div#b{
+	align:bottom;
+	bottom: inherit;
+	left : 0px;
+	}
+	
+	#c{
+	float: left;
+	left : auto;
+	bottom: inherit;
+	position: static;
+	}
+	</style>
+</head>
+<body onload = "pageLoaded()">
+	
+<div>
+<div id = "a">
+	<img src = "" id = "pic" height = "180" width = "150"/><br>
+</div>
+<div id = "b"><br><br>
+	<p><br>
+	  <br>
+	  <br>
+	</p>
+	<p>
+  <input type = "button" value = "Take Picture" onClick = "initCamera()"/>
+</p>
+<p>
+  <input type = "button" value = "Choose from Device" onClick = "initCamera()"/>
+</p>
+</div>
+<p><br>
+</p>
+</div>
+
+<div id = "c">
+	Name  : <input type = "text" id = "name" name = "name"/><br><br>
+	Email : <input type = "text" id = "email" name = "email"/>
+</div>
+
+</body>
+</html>
