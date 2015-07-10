@@ -14,14 +14,6 @@
 	
 	function initCamera(){
 	
-	var options = {
-		quality:80,
-		destinationType:DATA_URL, //DATA_URL,FILE_URI,NATIVE_URI
-		allowEdit:true,
-		encodingType:JPEG,
-		PictureSourceType:CAMERA //PHOTOLIBRARY,CAMERA,SAVEDPHOTOALBUM
-	}
-	
 	navigator.camera.getPicture(onSuccess,onFail,{quality:80,destinationType: Camera.DestinationType.DATA_URL});
 	}
 	
